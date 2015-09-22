@@ -1,0 +1,15 @@
+# R code to simulate coin toss and verify law of large numbers
+# Set up an empty vector or 5000 NAs to store probabality values:
+n = 5000
+X = rep(NA, n)
+for (j in 1:n) {
+  count = 0
+  for (i in 1:j){
+    num = runif(1,0,1)
+    if (num > 0.5){
+      count = count+1
+    }
+  }
+  X[j] = count/j
+}
+plot(X)
