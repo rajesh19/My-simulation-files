@@ -1,0 +1,13 @@
+clc
+clear
+z = xlsread('value traded.xlsx', 'five year');              % five year aveages
+country     = z(:,2);
+year             = z(:,1);
+t                     =  z(:,3);
+largeT        = z(:,4); 
+[m,n] = size(z);
+new_data = zeros(m-103, n);
+for i = 1:n
+    new_data(:,i) = lead_1(z(:,i), t);
+end
+new_data(:,5) = lag_1(z(:,5),t,largeT);
